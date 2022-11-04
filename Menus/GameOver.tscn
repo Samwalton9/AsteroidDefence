@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GameTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/GemunuLibre-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Menus/GameOver.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 81
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 47
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="GameOverLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -173.0
+margin_top = 167.0
+margin_right = 173.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "game over"
+uppercase = true
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.0
+margin_right = 20.0
+margin_bottom = 10.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+text = "Final score: 0"
+align = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -306.0
+margin_right = 20.0
+margin_bottom = -276.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
